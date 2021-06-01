@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,21 +8,25 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   public uiBasicCollapsed = false;
   public samplePagesCollapsed = false;
-  
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
     const body = document.querySelector('body');
 
     // add class 'hover-open' to sidebar navitem while hover in sidebar-icon-only menu
+    // tslint:disable-next-line:only-arrow-functions
     document.querySelectorAll('.sidebar .nav-item').forEach(function (el) {
-      el.addEventListener('mouseover', function() {
-        if(body.classList.contains('sidebar-icon-only')) {
+      // tslint:disable-next-line:only-arrow-functions
+      el.addEventListener('mouseover', function () {
+        if (body.classList.contains('sidebar-icon-only')) {
           el.classList.add('hover-open');
         }
       });
-      el.addEventListener('mouseout', function() {
-        if(body.classList.contains('sidebar-icon-only')) {
+      // tslint:disable-next-line:only-arrow-functions
+      el.addEventListener('mouseout', function () {
+        if (body.classList.contains('sidebar-icon-only')) {
           el.classList.remove('hover-open');
         }
       });

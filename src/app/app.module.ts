@@ -16,6 +16,11 @@ import { TodoComponent } from './apps/todo-list/todo/todo.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { IconsProviderModule } from './icons-provider.module';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { TodoListComponent } from './apps/todo-list/todo-list.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    NzButtonModule,
+    IconsProviderModule,
+    NzLayoutModule,
+    NzMenuModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
