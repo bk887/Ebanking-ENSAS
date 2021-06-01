@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-Dashboard',
   templateUrl: './Dashboard.component.html',
   styleUrls: ['./Dashboard.component.scss'],
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   toggleProBanner(event) {
-    console.log("123");
+    console.log('123');
     event.preventDefault();
     document.querySelector('body').classList.toggle('removeProbanner');
   }
@@ -39,7 +40,7 @@ export class DashboardComponent implements OnInit {
     fill: false,
   }];
 
-  visitSaleChartLabels = ["2013", "2014", "2014", "2015", "2016", "2017"];
+  visitSaleChartLabels = ['2013', '2014', "2014", "2015", "2016", "2017"];
 
   visitSaleChartOptions = {
     responsive: true,
