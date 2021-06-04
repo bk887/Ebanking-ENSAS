@@ -11,13 +11,13 @@
     <div class="card">
       <div class="card-body">
 
-        <form class="form-sample" (ngSubmit)=ajouterClient()>
+        <form class="form-sample">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="firstName" [ngModel]="client.firstName"  />
+                  <input type="text" class="form-control" name="firstName" [(ngModel)]="client.firstName"  />
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Nom</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="lastName" [ngModel]="client.lastName" />
+                  <input type="text" class="form-control" name="lastName" [(ngModel)]="client.lastName" />
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">CIN</label>
                 <div class="col-sm-9">
-                  <input class="form-control" name="CIN" [ngModel]="client.CIN" />
+                  <input class="form-control" name="CIN" [(ngModel)]="client.CIN" />
                 </div>
 
               </div>
@@ -44,7 +44,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Date de naissance</label>
                 <div class="col-sm-9">
-                  <input class="form-control" placeholder="dd/mm/yyyy" name="Birthday" [ngModel]="client.Birthday" />
+                  <input class="form-control" placeholder="dd/mm/yyyy" name="Birthday" [(ngModel)]="client.Birthday" />
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Addresse postale</label>
                 <div class="col-sm-9">
-                  <input class="form-control" name="AddressePostale" [ngModel]="client.addressePostale" />
+                  <input class="form-control" name="AddressePostale" [(ngModel)]="client.addressePostale" />
                 </div>
               </div>
               </div>
@@ -89,7 +89,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Addresse email</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="email" [ngModel]="client.email" />
+                  <input type="text" class="form-control" name="email" [(ngModel)]="client.email" />
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Date de création</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="AddressePostale" [ngModel]="client.dateCreation" />
+                  <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="AddressePostale" [(ngModel)]="client.dateCreation" />
                 </div>
               </div>
             </div>
@@ -130,8 +130,8 @@
             </div>
           </div>
 
-      
-          <button nz-button nzType="primary"(click)="ajouterClient()">Ajouter</button>
+
+          <button nz-button nzType="primary" (click)="ajouterClient()">Ajouter</button>
 
 
         </form>
