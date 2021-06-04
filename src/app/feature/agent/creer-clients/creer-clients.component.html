@@ -15,9 +15,9 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Prenom</label>
+                <label class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" name="firstName" [(ngModel)]="client.firstName"/>
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Nom</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" name="lastName" [(ngModel)]="client.lastName" />
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">CIN</label>
                 <div class="col-sm-9">
-                  <input class="form-control"/>
+                  <input class="form-control" name="CIN" [(ngModel)]="client.CIN"/>
                 </div>
 
               </div>
@@ -44,7 +44,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Date de naissance</label>
                 <div class="col-sm-9">
-                  <input class="form-control" placeholder="dd/mm/yyyy"/>
+                  <input class="form-control" placeholder="dd/mm/yyyy" name="Birthday" [(ngModel)]="client.Birthday">
                 </div>
               </div>
             </div>
@@ -144,7 +144,7 @@
             </div>
           </div>
 
-          <button type="button" mdbBtn color="secondary" mdbWavesEffect>Ajouter</button>
+          <button nz-button nzType="primary">Ajouter</button>
 
         </form>
       </div>

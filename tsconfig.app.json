@@ -2,7 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "lib": [
+      "webworker",
+      "dom"
+    ]
   },
   "angularCompilerOptions": {
     "preserveWhitespaces": true //Not working in angular 8.1.1
