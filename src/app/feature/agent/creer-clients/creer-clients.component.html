@@ -11,13 +11,13 @@
     <div class="card">
       <div class="card-body">
 
-        <form class="form-sample">
+        <form class="form-sample" (ngSubmit)=ajouterClient()>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="firstName" [(ngModel)]="client.firstName"/>
+                  <input type="text" class="form-control" name="firstName" [ngModel]="client.firstName"  />
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Nom</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="lastName" [(ngModel)]="client.lastName" />
+                  <input type="text" class="form-control" name="lastName" [ngModel]="client.lastName" />
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">CIN</label>
                 <div class="col-sm-9">
-                  <input class="form-control" name="CIN" [(ngModel)]="client.CIN"/>
+                  <input class="form-control" name="CIN" [ngModel]="client.CIN" />
                 </div>
 
               </div>
@@ -44,7 +44,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Date de naissance</label>
                 <div class="col-sm-9">
-                  <input class="form-control" placeholder="dd/mm/yyyy" name="Birthday" [(ngModel)]="client.Birthday">
+                  <input class="form-control" placeholder="dd/mm/yyyy" name="Birthday" [ngModel]="client.Birthday" />
                 </div>
               </div>
             </div>
@@ -54,11 +54,11 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Addresse postale</label>
                 <div class="col-sm-9">
-                  <input class="form-control"/>
+                  <input class="form-control" name="AddressePostale" [ngModel]="client.addressePostale" />
                 </div>
-
               </div>
-            </div>
+              </div>
+
             <div class="col-md-6">
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Sexe</label>
@@ -89,7 +89,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Addresse email</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" name="email" [ngModel]="client.email" />
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Numero téléphone</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" name="numTel" [ngModel]="client.phoneNumber" />
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Date de création</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="dd/mm/yyyy"/>
+                  <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="AddressePostale" [ngModel]="client.dateCreation" />
                 </div>
               </div>
             </div>
@@ -119,32 +119,20 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
+
             <div class="col-md-6">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Ville</label>
+                <label class="col-sm-3 col-form-label">Agent</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" />
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Agence</label>
-                <div class="col-sm-9">
-                  <select class="form-control">
-                    <option>Rabat</option>
-                    <option>Casablanca</option>
-                    <option>Safi</option>
-                    <option>Agadir</option>
-                  </select>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <button nz-button nzType="primary">Ajouter</button>
+      
+          <button nz-button nzType="primary"(click)="ajouterClient()">Ajouter</button>
+
 
         </form>
       </div>

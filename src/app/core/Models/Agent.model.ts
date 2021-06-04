@@ -1,7 +1,6 @@
-import {DateAdapterOptions} from 'chart.js';
 
-export class Client {
-  firstName : string;
+export class Agent {
+  firstName: string;
   lastName: string;
   email: string;
   phoneNumber: string;
@@ -9,10 +8,4 @@ export class Client {
   Birthday: string;
   addressePostale: string;
   dateCreation: string;
-
-
-
-
-
-
 }

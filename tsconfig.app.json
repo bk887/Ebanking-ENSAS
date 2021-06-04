@@ -5,7 +5,8 @@
     "types": [],
     "lib": [
       "webworker",
-      "dom"
+      "dom",
+      "es2015.core"
     ]
   },
   "angularCompilerOptions": {

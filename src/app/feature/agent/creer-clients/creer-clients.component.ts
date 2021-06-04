@@ -8,7 +8,12 @@ import { Client} from '../../../core/Models/Client.model';
 })
 export class CreerClientsComponent implements OnInit {
 
-  @Input() client: Client;
+  @Input() client: Client = new Client();
+
+  ajouterClient(): void {
+    console.log(this.client);
+  }
+
 
 
   constructor() { }
