@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { Client} from '../../../core/Models/Client.model';
 
 @Component({
   selector: 'app-creer-clients',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreerClientsComponent implements OnInit {
 
+  @Input() client: Client = new Client();
+
+  ajouterClient(): void {
+    console.log(this.client);
+  }
+
+
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(){ }
 
 }
