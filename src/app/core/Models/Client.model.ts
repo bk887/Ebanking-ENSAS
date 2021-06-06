@@ -1,18 +1,8 @@
 import {DateAdapterOptions} from 'chart.js';
+import {User} from './User.model';
+import {Agent} from './Agent.model';
 
-export class Client {
-  firstName : string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  CIN: string;
-  Birthday: string;
-  addressePostale: string;
-  dateCreation: string;
-
-
-
-
-
+export class Client extends User{
+  agent: Agent;
 
 }

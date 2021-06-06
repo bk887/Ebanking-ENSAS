@@ -20,6 +20,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
     NzButtonModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    HttpClientModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

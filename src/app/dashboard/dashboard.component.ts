@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  // @ts-ignore
   date: Date = new Date();
 
   visitSaleChartData = [{

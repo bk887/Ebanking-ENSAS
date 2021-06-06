@@ -25,74 +25,76 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>
-                WD-12345
-              </td>
-              <td>
-                Fund is not recieved
-              </td>
-              <td>
-                Dec 5, 2017
-              </td>
-              <td>
-                08:15
-              </td>
-              <td>
-                1000 MAD
-              </td>
-            </tr>
-            <tr>
-              <td>
-                WD-12346
-              </td>
-              <td>
-                High loading time
-              </td>
-              <td>
-                Dec 12, 2017
-              </td>
-              <td>
-                08:15
-              </td>
-              <td>
-                1000 MAD
-              </td>
-            </tr>
-            <tr>
-              <td>
-                WD-12347
-              </td>
-              <td>
-                Website down for one week
-              </td>
-              <td>
-                Dec 16, 2017
-              </td>
-              <td>
-                08:15
-              </td>
-              <td>
-                1000 MAD
-              </td>
-            </tr>
-            <tr>
-              <td>
-                WD-12348
-              </td>
-              <td>
-                Loosing control on server
-              </td>
-              <td>
-                Dec 3, 2017
-              </td>
-              <td>
-                08:15
-              </td>
-              <td>
-                1000 MAD
-              </td>
-            </tr>
+<!--            <tr>-->
+<!--              <td>-->
+<!--                {{transaction.id}}-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                {{transaction.title}}-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                {{transaction.transactionDate | date: 'dd-MM-y' }}-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                {{transaction.transactionDate | date: 'H:m'}}-->
+<!--              </td>-->
+<!--              <td [ngClass]="{'text-gray': montant > 0}">-->
+<!--                {{ transaction.amount }} MAD-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td>-->
+<!--                WD-12346-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                High loading time-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                Dec 12, 2017-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                08:15-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                {{ montant }} MAD-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td>-->
+<!--                WD-12347-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                Website down for one week-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                Dec 16, 2017-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                08:15-->
+<!--              </td>-->
+<!--              <td [ngClass]="{'text-success': montant > 0, 'text-danger': montant < 0}">-->
+<!--                <label *ngIf="montant > 0">+</label>{{ montant }} MAD-->
+<!--              </td>-->
+<!--            </tr>-->
+              <tr *ngFor="let trans of transactions, let index = index">
+                <td>
+                  {{trans.id}}
+                </td>
+                <td>
+                  {{trans.title}}
+                </td>
+                <td>
+                  {{trans.transactionDate | date: 'dd-MM-y' }}
+                </td>
+                <td>
+                  {{trans.transactionDate | date: 'H:m'}}
+                </td>
+                <td [ngClass]="{'text-success': index % 2 == 0, 'text-danger': index % 2 != 0}">
+                  <label *ngIf="index % 2 == 0">+</label>
+                  <label *ngIf="index % 2 != 0">-</label>
+                  {{ trans.amount }} MAD
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

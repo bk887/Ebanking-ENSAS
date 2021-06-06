@@ -6,7 +6,8 @@
     "lib": [
       "webworker",
       "dom",
-      "es2015.core"
+      "es2015.core",
+      "es2015.symbol.wellknown"
     ]
   },
   "angularCompilerOptions": {
