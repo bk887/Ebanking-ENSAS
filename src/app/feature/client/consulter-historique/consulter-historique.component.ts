@@ -13,7 +13,6 @@ export class ConsulterHistoriqueComponent implements OnInit {
 
   private  transactions: Transaction[] = new Array<Transaction>();
   private history: History = new History();
-  private client: Client = new Client;
   private id: number = 1799;
 
   constructor(private clientService: ClientService) { }
