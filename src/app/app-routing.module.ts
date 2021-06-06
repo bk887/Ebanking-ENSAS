@@ -20,7 +20,8 @@ const routes: Routes = [
   {
     path: 'dashboard'
     , loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule)
-  }
+  },
+  { path: 'login', loadChildren: () => import('./public/login/login.module').then(m => m.LoginModule) }
 ];
 
 @NgModule({

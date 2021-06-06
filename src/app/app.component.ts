@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
     router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
         // tslint:disable-next-line:triple-equals
-        if((event.url == '/user-pages/login') || (event.url == '/user-pages/register') || (event.url == '/error-pages/404') || (event.url == '/error-pages/500') ) {
+        if((event.url == '/user-pages/login') || (event.url == '/user-pages/register') || (event.url == '/error-pages/404') || (event.url == '/error-pages/500') || (event.url == '/login/login-client') || (event.url == '/login/login-agent') ) {
           this.showSidebar = false;
           this.showNavbar = false;
           this.showFooter = false;
