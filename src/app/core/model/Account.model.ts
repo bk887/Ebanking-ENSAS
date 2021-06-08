@@ -5,4 +5,5 @@ export class Account {
   creationDate: Date;
   balance: number;
   history: History;
+
 }
