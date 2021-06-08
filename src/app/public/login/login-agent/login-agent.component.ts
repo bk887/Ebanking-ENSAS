@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Identification} from "../../../core/model/Identification.model";
 
 @Component({
   selector: 'app-login-agent',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginAgentComponent implements OnInit {
 
+  identification : Identification = new Identification()
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    console.log("agent identification :" , this.identification)
+  }
 }
