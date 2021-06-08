@@ -1,5 +1,6 @@
 import {Identification} from './Identification.model';
 import {Account} from './Account.model';
+import {Identity} from './Identity.model';
 
 export class User {
   id: number;
@@ -8,7 +9,8 @@ export class User {
   email: string;
   phoneNumber: string;
   dob: Date;
-  addresse: string;
+  address: string;
   identification: Identification;
   account: Account;
+  identity: Identity;
 }

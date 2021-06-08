@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Client} from '../../../core/model/Client.model';
+import {ClientService} from '../../../core/service/client.service';
+import {Transaction} from '../../../core/model/Transaction.model';
+import {History} from '../../../core/model/History.model';
 
 @Component({
   selector: 'app-consulter-solde',
@@ -7,9 +11,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsulterSoldeComponent implements OnInit {
 
-  constructor() { }
+  private client: Client = new Client();
+  private id: number = 2439;
+  private history = new History();
+
+  constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.getClients(this.id);
+    this.getHistory();
+    // console.log(this.client);
+  }
+
+  private getClients(id: number) {
+    this.clientService.getClient(id).subscribe(data => {
+      this.client = data;
+      // console.log(this.client.account.history);
+
+    });
+
+  }
+
+  private getHistory() {
+    // console.log(this.client.account.history.transactions.length);
+    let i = (this.client.account?.history?.transactions?.length <= 3) ? this.client?.account?.history?.transactions.length : 3;
+    console.log(this.client.account?.history?.transactions);
+    let k = 0;
+    while ( i > 0) {
+      this.history?.transactions?.push( this.client.account?.history?.transactions[ k ] );
+      k++;
+      i--;
+    }
+    // console.log(this.history)
   }
 
   trafficChartData = [
