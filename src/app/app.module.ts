@@ -11,8 +11,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardComponent } from './Dashboard/Dashboard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { TodoComponent } from './apps/todo-list/todo/todo.component';
+
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
@@ -20,6 +22,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+
+
 
 
 @NgModule({
@@ -37,10 +41,10 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     ChartsModule,
     NzButtonModule,
     IconsProviderModule,

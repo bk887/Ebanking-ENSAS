@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Transaction } from 'src/app/core/Models/Transaction.model';
 
 @Component({
   selector: 'app-effectuer-virement',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EffectuerVirementComponent implements OnInit {
 
-  constructor() { }
+  @Input() trans:Transaction;
+
+  constructor() {
+    this.trans = new Transaction();
+   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit()
+  {
+    console.log(this.trans.beneficiaire);
   }
 
 }
