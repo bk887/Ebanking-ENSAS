@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Client} from "../../core/model/Client.model";
 
 @Component({
   selector: 'app-agent',
@@ -11,5 +12,6 @@ export class AgentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Agent} from "../../core/model/Agent.model";
+import {Session} from "../../utils/session-utils";
+import {Client} from "../../core/model/Client.model";
 
 @Component({
   selector: 'app-sidebar',
@@ -12,6 +15,12 @@ export class SidebarComponent implements OnInit {
   constructor() {
   }
 
+  public get agent():Agent{
+    return Session.retrieve("connectedAgent")
+  }
+  public get client():Client{
+    return Session.retrieve("connectedClient")
+  }
   ngOnInit() {
     const body = document.querySelector('body');
 

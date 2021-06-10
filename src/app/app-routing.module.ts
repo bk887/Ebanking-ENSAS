@@ -5,7 +5,7 @@ import { DashboardComponent } from './Dashboard/Dashboard.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard/agent/creer-clients', pathMatch: 'full' },
+  { path: '', redirectTo: '/login/login-agent', pathMatch: 'full' },
   { path: 'Dashboard', component: DashboardComponent },
   { path: 'basic-ui', loadChildren: () => import('./basic-ui/basic-ui.module').then(m => m.BasicUiModule) },
   { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsDemoModule) },

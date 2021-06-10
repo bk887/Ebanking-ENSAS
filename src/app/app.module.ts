@@ -21,7 +21,7 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {HttpClientModule} from '@angular/common/http';
-
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import {HttpClientModule} from '@angular/common/http';
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    NzIconModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

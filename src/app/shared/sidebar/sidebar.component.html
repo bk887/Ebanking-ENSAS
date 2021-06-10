@@ -3,83 +3,85 @@
     <li class="nav-item nav-profile">
       <a href="javascript:;" class="nav-link">
         <div class="nav-profile-image">
-          <img src="assets/images/faces/face0.jpg" alt="profile">
+          <img src="assets/images/faces/user.png" alt="profile">
           <span class="login-status online"></span> <!--change to offline or busy as needed-->
         </div>
         <div class="nav-profile-text">
-          <span class="font-weight-bold mb-2">User1</span>
+          <br>
+          <span class="font-weight-bold mb-2" *ngIf="agent">{{agent.lastName}} {{agent.firstName}}</span>
+          <span class="font-weight-bold mb-2" *ngIf="client">{{client.lastName}} {{client.firstName}}</span>
 <!--          <span class="text-secondary text-small">Admin</span>-->
         </div>
 
       </a>
     </li>
 
-    <li class="nav-item" [ngClass]="{ 'active': CreerClients.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': CreerClients.isActive }" *ngIf="agent">
       <a class="nav-link" routerLink="/dashboard/agent/creer-clients" routerLinkActive #CreerClients="routerLinkActive">
-        <span class="menu-title"><i class="mdi mdi-account-plus"></i>  Créer des nouveaux clients</span>
+        <span class="menu-title"><i class="mdi mdi-account-plus" ></i>  Créer des nouveaux clients</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': GererClients.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': GererClients.isActive }" *ngIf="agent">
       <a class="nav-link" routerLink="/dashboard/agent/gerer-clients" routerLinkActive #GererClients="routerLinkActive">
-        <span class="menu-title"><i class="mdi mdi-account-settings"></i>  Gérer les clients</span>
+        <span class="menu-title" ><i class="mdi mdi-account-settings" ></i>  Gérer les clients</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': PayerFactures.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': PayerFactures.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/payer-factures" routerLinkActive #PayerFactures="routerLinkActive">
         <span class="menu-title"> <i class="mdi mdi-credit-card"></i> Payer les factures</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': GererCompte.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': GererCompte.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/gerer-compte" routerLinkActive #GererCompte="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-account-key"></i> Gérer le compte</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': ConsulterSolde.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': ConsulterSolde.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/consulter-solde" routerLinkActive #ConsulterSolde="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-cash-multiple"></i>  Consulter le solde</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': VisualiserCompte.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': VisualiserCompte.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/visualiser-compte" routerLinkActive #VisualiserCompte="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-account-circle"></i>  Visualiser le compte</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': ConsulterHistorique.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': ConsulterHistorique.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/consulter-historique" routerLinkActive #ConsulterHistorique="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-history"></i> Consulter l'historique des paiement</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': ConsulterFacture.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': ConsulterFacture.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/consulter-facture" routerLinkActive #ConsulterFacture="routerLinkActive">
         <span class="menu-title"> <i class="mdi mdi-cellphone-link"></i>  Consulter les factures</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': EffectuerRechargeTele.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': EffectuerRechargeTele.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/effectuer-recharge-tele" routerLinkActive #EffectuerRechargeTele="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-cellphone"></i> Effectuer les recharges télé</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': EffectuerVirement.isActive }">
+    <li class="nav-item" [ngClass]="{ 'active': EffectuerVirement.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/effectuer-virement" routerLinkActive #EffectuerVirement="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-credit-card-scan"></i> Effectuer des virements</span>
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': Dashboard.isActive }">
-      <a class="nav-link" routerLink="/Dashboard" routerLinkActive #Dashboard="routerLinkActive">
-        <span class="menu-title">Dashboard</span>
+<!--    <li class="nav-item" [ngClass]="{ 'active': Dashboard.isActive }">-->
+<!--      <a class="nav-link" routerLink="/Dashboard" routerLinkActive #Dashboard="routerLinkActive">-->
+<!--        <span class="menu-title">Dashboard</span>-->
 
-      </a>
-    </li>
+<!--      </a>-->
+<!--    </li>-->
 
 <!--    <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">-->
 <!--      <a class="nav-link" routerLink="forms/basic-elements" routerLinkActive #forms="routerLinkActive">-->
@@ -87,12 +89,12 @@
 
 <!--      </a>-->
 <!--    </li>-->
-    <li class="nav-item" [ngClass]="{ 'active': charts.isActive }">
-      <a class="nav-link" routerLink="charts/chartjs" routerLinkActive #charts="routerLinkActive">
-        <span class="menu-title">Consulter statistiques</span>
+<!--    <li class="nav-item" [ngClass]="{ 'active': charts.isActive }">-->
+<!--      <a class="nav-link" routerLink="charts/chartjs" routerLinkActive #charts="routerLinkActive">-->
+<!--        <span class="menu-title">Consulter statistiques</span>-->
 
-      </a>
-    </li>
+<!--      </a>-->
+<!--    </li>-->
 <!--    <li class="nav-item" [ngClass]="{ 'active': tables.isActive }">-->
 <!--      <a class="nav-link" routerLink="tables/basic-table" routerLinkActive #tables="routerLinkActive">-->
 <!--        <span class="menu-title">Recherche</span>-->

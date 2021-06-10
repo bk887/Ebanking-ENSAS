@@ -1,1 +1,68 @@
-<p>gerer-clients works!</p>
+<div class="row">
+
+    <h2 class="paiementsTitle mx-auto">Liste des clients</h2>
+
+<!--<br>-->
+<!--  <br>-->
+<!--  <div>-->
+<!--    <button mat-raised-button class="btn btn-outline-primary addInstitute" routerLink="../creer-clients">Add new Client-->
+<!--    </button>-->
+<!--  </div>-->
+
+
+  <nz-table #nzTable [nzData]="listOfDisplayClient" nzTableLayout="fixed">
+    <thead>
+    <tr>
+      <th nzWidth="60px"></th>
+      <th>
+        Prenom
+      </th>
+      <th>Nom</th>
+      <th nzCustomFilter>CIN
+        <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
+      <th>Phone</th>
+      <th nzWidth="200px"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let data of nzTable.data ">
+      <tr>
+        <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+        <td>{{ data.firstName }}</td>
+        <td>{{ data.lastName }}</td>
+        <td>{{ data?.identity.serialNumber }}</td>
+        <td>{{ data.phoneNumber }}</td>
+        <td>
+
+          <button nz-button nzType="default" nzType="primary" nzDanger (click)="delete(data)">delete
+          </button>
+          <button nz-button nzType="default" nzType="primary" (click)="edit(data.id)">edit
+          </button>
+        </td>
+
+      </tr>
+      <tr [nzExpand]="expandSet.has(data.id)">
+      <span>balance est : {{ data?.account.balance }}
+        <br> la date de creation du compte est : {{ data?.account.creationDate }}
+        <br>la date de naissance est : {{ data.dob }}
+        <br>l'adresse est : {{ data.address }} </span>
+      </tr>
+    </ng-container>
+    </tbody>
+  </nz-table>
+
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <div class="ant-table-filter-dropdown">
+      <div class="search-box">
+        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue"/>
+        <button mat-raised-button class="btn btn-primary btn-sm search-button" (click)="search()">
+          Search
+        </button>
+        <button mat-raised-button class="btn btn-outline-primary btn-sm " (click)="reset()">Reset</button>
+      </div>
+    </div>
+  </nz-dropdown-menu>
+</div>
