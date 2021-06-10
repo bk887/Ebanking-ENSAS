@@ -28,6 +28,12 @@
 
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': virrement.isActive }" *ngIf="agent">
+      <a class="nav-link" routerLink="/dashboard/agent/virement" routerLinkActive #virrement="routerLinkActive">
+        <span class="menu-title" ><i class="mdi mdi-account-settings" ></i>  Effectuer des virements</span>
+
+      </a>
+    </li>
     <li class="nav-item" [ngClass]="{ 'active': PayerFactures.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/payer-factures" routerLinkActive #PayerFactures="routerLinkActive">
         <span class="menu-title"> <i class="mdi mdi-credit-card"></i> Payer les factures</span>

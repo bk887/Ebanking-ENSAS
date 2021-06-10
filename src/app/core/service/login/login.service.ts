@@ -10,8 +10,8 @@ import {Identification} from "../../model/Identification.model";
 })
 export class LoginService {
 
-  private baseUrlClient = "http://localhost:8080/client/auth";
-  private baseUrlAgent = "http://localhost:8080/agent/auth";
+  private baseUrlClient = "https://ebanking-ensas.herokuapp.com/client/auth";
+  private baseUrlAgent = "https://ebanking-ensas.herokuapp.com/agent/auth";
 
   constructor(private httpClient: HttpClient) {
 

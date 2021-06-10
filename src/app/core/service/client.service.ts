@@ -9,7 +9,7 @@ import {Agent} from '../model/Agent.model';
 })
 export class ClientService {
 
-  private baseUrl = "http://localhost:8080/client/2439";
+  private baseUrl = "https://ebanking-ensas.herokuapp.com/client/2439";
 
   constructor(private httpClient: HttpClient) {
 

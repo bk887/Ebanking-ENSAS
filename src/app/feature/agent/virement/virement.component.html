@@ -1,0 +1,105 @@
+<div class="row">
+
+  <h2 class="paiementsTitle mx-auto">Effectuer des virements</h2>
+  <br>
+  <br>
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+
+        <form class="form-sample" (ngSubmit)="onSubmit()" name="myForm" #myForm="ngForm">
+
+          <div class="col-md-12">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Sujet de virement</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" [(ngModel)]="transaction.title" name="firstName"
+                       id="firstName"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">RIP du receiver</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" [(ngModel)]="transaction.receiver" name="lastName"
+                       id="lastName"/>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Montant</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="username" id="username" [(ngModel)]="transaction.amount"/>
+              </div>
+            </div>
+          </div>
+
+
+          <button class="btn  btn-primary  font-weight-medium auth-form-btn" type="submit">submit
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+<div class="row">
+  <h2 class="paiementsTitle mx-auto">Historique des paiements</h2>
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>
+                ID Transaction
+              </th>
+              <th>
+                Opération
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Heure
+              </th>
+              <th>
+                Montant
+              </th>
+            </tr>
+            </thead>
+<!--            <tbody>-->
+
+<!--            <tr *ngFor="let trans of transaction">-->
+<!--              <td>-->
+<!--                {{ trans?.id }}-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                {{ trans.title }}-->
+<!--              </td>-->
+<!--&lt;!&ndash;              <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                {{ trans.transactionDate }}&ndash;&gt;-->
+<!--&lt;!&ndash;              </td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                {{ trans.transactionDate | date: 'HH:mm' }}&ndash;&gt;-->
+<!--&lt;!&ndash;              </td>&ndash;&gt;-->
+<!--              <td [ngClass]="{'text-success': trans.amount > 0, 'text-danger': trans.amount < 0}">-->
+<!--                <label *ngIf="trans.amount > 0">+</label>-->
+<!--                {{ trans.amount }}-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

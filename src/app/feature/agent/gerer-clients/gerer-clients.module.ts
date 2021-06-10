@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import {NzModalModule} from "ng-zorro-antd/modal";
 
 @NgModule({
   declarations: [GererClientsComponent],
@@ -20,7 +21,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     FormsModule,
     NzButtonModule,
     NzIconModule,
-    NzInputModule
+    NzInputModule,
+    NzModalModule
   ]
 })
 export class GererClientsModule { }
