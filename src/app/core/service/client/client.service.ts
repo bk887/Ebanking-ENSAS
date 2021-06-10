@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Client} from '../model/Client.model';
-import {Agent} from '../model/Agent.model';
+import {Client} from '../../model/Client.model';
+import {Agent} from '../../model/Agent.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  private baseUrl = "http://localhost:8080/client/2439";
+  private baseUrl = "https://ebanking-ensas.herokuapp.com/client/";
 
   constructor(private httpClient: HttpClient) {
 

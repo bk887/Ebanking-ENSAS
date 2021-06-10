@@ -10,8 +10,8 @@ import {Identification} from "../../model/Identification.model";
 })
 export class AgentService {
 
-  private baseUrl = "http://localhost:8080/agent/";
-  private baseUrlClient = "http://localhost:8080/client/";
+  private baseUrl = "https://ebanking-ensas.herokuapp.com/agent/";
+  private baseUrlClient = "https://ebanking-ensas.herokuapp.com/client/";
   constructor(private httpClient: HttpClient) { }
 
   getAgent(): Observable<Agent> {
