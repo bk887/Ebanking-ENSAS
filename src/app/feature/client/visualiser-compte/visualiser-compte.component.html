@@ -1,1 +1,134 @@
-<p>visualiser-compte works!</p>
+<h2 class="text-center">Votre Compte</h2>
+<div class="row">
+  <div class="col-md-7">
+    <div class="col-md-12 stretch-card grid-margin">
+      <div class="card card-img-holder text-white">
+        <div class="card-body">
+          <form class="form-sample">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Prenom</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" value="{{ client.firstName }}" disabled/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Nom</label>
+                  <div class="col-sm-4">
+                    <input class="form-control" value="{{ client.lastName }}" disabled/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Date de naissance</label>
+                  <div class="col-sm-4">
+                    <input class="form-control" disabled value="{{ client.dob }}" />
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">CIN</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" disabled value="{{ client.identity.serialNumber }}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Adresse</label>
+                  <div class="col-sm-4">
+                    <input class="form-control" disabled value="{{ client.address }}"/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Tel</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" disabled value="{{ client.phoneNumber }}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Email</label>
+                  <div class="col-sm-4">
+                    <input class="form-control" disabled value="{{ client.email }}"/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="col-md-12 stretch-card grid-margin">
+      <div class="card card-img-holder text-white">
+        <div class="card-body">
+          <h3>Joindre mon conseiller</h3>
+          <div class="row">
+            <img
+              nz-image
+              width="100px"
+              height="100px"
+              src="assets/images/unkown_user.jpg"
+              alt=""
+            />
+            <div class="my-auto mx-4">
+              <h4 >{{ agent.firstName }} {{ agent.lastName }}</h4>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="row">
+              <div class="">
+                <i class="mdi mdi-cellphone-android"></i> {{ agent.phoneNumber }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="">
+                <i class="mdi mdi-email-open-outline"></i> {{ agent.email }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="">
+                <i class="mdi mdi-map-marker"></i> {{ agent.address }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

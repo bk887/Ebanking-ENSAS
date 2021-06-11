@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
@@ -11,9 +10,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardComponent } from './Dashboard/Dashboard.component';
-import { FormsModule} from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { TodoComponent } from './apps/todo-list/todo/todo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
@@ -22,6 +21,16 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import {HttpClientModule} from '@angular/common/http';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 
 
@@ -38,6 +47,14 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
     SpinnerComponent,
     ContentAnimateDirective
   ],
+  exports: [
+    MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatChipsModule,
+    MatCheckboxModule,
+    MatSelectModule
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -49,7 +66,15 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
     NzButtonModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    HttpClientModule,
+
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatButtonModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
