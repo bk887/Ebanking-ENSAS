@@ -13,4 +13,11 @@ export class User {
   identification: Identification;
   account: Account;
   identity: Identity;
+
+
+  constructor() {
+    this.identification = new Identification();
+    this.account = new Account();
+    this.identity = new Identity();
+  }
 }

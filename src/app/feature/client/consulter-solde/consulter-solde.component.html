@@ -53,6 +53,36 @@
     <div class="card card-img-holder text-white">
       <div class="card-body">
 
+        <div class="row">
+          <div class="col-md-3 text-black text-center">
+            <a class="nav-link" routerLink="/dashboard/client/visualiser-compte" routerLinkActive #VisualiserCompte="routerLinkActive">
+              <i class="mdi mdi-account-circle"></i>
+            </a>
+          </div>
+          <div class="col-md-3 text-black text-center">
+            <a class="nav-link" routerLink="/dashboard/client/effectuer-virement" routerLinkActive #EffectuerVirement="routerLinkActive">
+              <i class="mdi mdi-credit-card-scan"></i>
+            </a>
+          </div>
+          <div class="col-md-3 text-black text-center">
+            <a class="nav-link" routerLink="/dashboard/client/consulter-historique" routerLinkActive #ConsulterHistorique="routerLinkActive">
+              <i class="mdi mdi-history"></i>
+            </a>
+          </div>
+          <div class="col-md-3 text-black text-center">
+            <a class="nav-link" routerLink="/dashboard/client/payer-factures" routerLinkActive #PayerFactures="routerLinkActive">
+              <i class="mdi mdi-credit-card"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 text-black text-center"><a class="nav-link" routerLink="/dashboard/client/visualiser-compte" routerLinkActive #VisualiserCompte="routerLinkActive">Visualiser le compte</a></div>
+          <div class="col-md-3 text-black text-center"><a class="nav-link" routerLink="/dashboard/client/effectuer-virement" routerLinkActive #EffectuerVirement="routerLinkActive">Effectuer des virements</a></div>
+          <div class="col-md-3 text-black text-center"><a class="nav-link" routerLink="/dashboard/client/consulter-historique" routerLinkActive #ConsulterHistorique="routerLinkActive">Consulter l'historique des paiement</a></div>
+          <div class="col-md-3 text-black text-center"><a class="nav-link" routerLink="/dashboard/client/payer-factures" routerLinkActive #PayerFactures="routerLinkActive">Payer les factures</a></div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -61,21 +91,17 @@
   <div class="col-lg-6 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Traffic Sources</h4>
+        <h4 class="card-title text-center">L'évaluation des entrées et des sorties</h4>
         <canvas baseChart [chartType]="'doughnut'" [datasets]="trafficChartData" [labels]="trafficChartLabels" [options]="trafficChartOptions" [colors]="trafficChartColors"></canvas>
         <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
           <ul>
-            <li>
-              <span class="legend-dots"></span>Search Engines
-              <span class="float-right">30%</span>
+            <li class="text-danger">
+              <span class="legend-dots"></span><i class="mdi mdi-trending-down"></i> Sorties
+              <span class="float-right">{{this.negativeTransaction}}%</span>
             </li>
-            <li>
-              <span class="legend-dots"></span>Direct Click
-              <span class="float-right">30%</span>
-            </li>
-            <li>
-              <span class="legend-dots"></span>Bookmarks Click
-              <span class="float-right">40%</span>
+            <li class="text-success">
+              <span class="legend-dots"></span><i class="mdi mdi-trending-up"></i> Entrées
+              <span class="float-right">{{this.positiveTransaction}}%</span>
             </li>
           </ul>
         </div>
@@ -111,39 +137,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>
-                1
-              </td>
-              <td>
-                Herman Beck
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-            </tr>
-            <tr>
-              <td>
-                2
-              </td>
-              <td>
-                Messsy Adam
-              </td>
-              <td>
-                Jul 01, 2015
-              </td>
-            </tr>
-            <tr>
-              <td>
-                3
-              </td>
-              <td>
-                John Richards
-              </td>
-              <td>
-                Apr 12, 2015
-              </td>
-            </tr>
+              <tr *ngFor="let trans of this.client.account.history.transactions; let i = index">
+                <td *ngIf="i < 3">{{ trans.id }}</td>
+                <td *ngIf="i < 3">{{ trans.title }}</td>
+                <td *ngIf="i < 3">{{ trans.transactionDate }}</td>
+              </tr>
             </tbody>
           </table>
         </div>

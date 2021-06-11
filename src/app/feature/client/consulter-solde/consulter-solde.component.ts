@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Client} from '../../../core/model/Client.model';
-import {ClientService} from '../../../core/service/client.service';
+import {ClientService} from '../../../core/service/client/client.service';
 import {Transaction} from '../../../core/model/Transaction.model';
 import {History} from '../../../core/model/History.model';
+import {Session} from '../../../utils/session-utils';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-consulter-solde',
@@ -12,42 +14,40 @@ import {History} from '../../../core/model/History.model';
 export class ConsulterSoldeComponent implements OnInit {
 
   private client: Client = new Client();
-  private id: number = 2439;
-  private history = new History();
+  private positiveTransaction: number = 0.0;
+  private negativeTransaction: number = 0.0;
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService) {
+    this.client = Session.retrieve("connectedClient");
+  }
 
   ngOnInit(): void {
-    this.getClients(this.id);
-    this.getHistory();
-    // console.log(this.client);
+    this.transactionDataChart();
   }
 
-  private getClients(id: number) {
-    this.clientService.getClient(id).subscribe(data => {
-      this.client = data;
-      // console.log(this.client.account.history);
-
+  private transactionDataChart() {
+    this.client.account.history.transactions.forEach(element => {
+      if (element.amount > 0) {
+        this.positiveTransaction += element.amount;
+      } else {
+        this.negativeTransaction += -(element.amount);
+      }
     });
 
-  }
+    this.positiveTransaction = ( this.positiveTransaction / (this.positiveTransaction + this.negativeTransaction) ) * 100;
+    this.negativeTransaction = ( this.negativeTransaction / (this.positiveTransaction + this.negativeTransaction) ) * 100;
 
-  private getHistory() {
-    // console.log(this.client.account.history.transactions.length);
-    let i = (this.client.account?.history?.transactions?.length <= 3) ? this.client?.account?.history?.transactions.length : 3;
-    console.log(this.client.account?.history?.transactions);
-    let k = 0;
-    while ( i > 0) {
-      this.history?.transactions?.push( this.client.account?.history?.transactions[ k ] );
-      k++;
-      i--;
-    }
-    // console.log(this.history)
+    this.trafficChartData = [
+      {
+        data: [this.negativeTransaction, this.positiveTransaction],
+      }
+    ];
+
   }
 
   trafficChartData = [
     {
-      data: [30, 30, 40],
+      data: [0, 0],
     }
   ];
 
@@ -65,12 +65,10 @@ export class ConsulterSoldeComponent implements OnInit {
   trafficChartColors = [
     {
       backgroundColor: [
-        'rgba(177, 148, 250, 1)',
         'rgba(254, 112, 150, 1)',
         'rgba(132, 217, 210, 1)'
       ],
       borderColor: [
-        'rgba(177, 148, 250, .2)',
         'rgba(254, 112, 150, .2)',
         'rgba(132, 217, 210, .2)'
       ]

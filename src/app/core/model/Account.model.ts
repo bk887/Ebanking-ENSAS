@@ -6,4 +6,8 @@ export class Account {
   balance: number;
   history: History;
 
+
+  constructor() {
+    this.history = new History();
+  }
 }
