@@ -1,1 +1,67 @@
-<p>effectuer-virement works!</p>
+<div>
+    <h2 style="text-align: center; color:#D285FF">Transfert d'argent</h2>
+</div>
+<div  class="conteneur" style="height: auto;">
+    <br>
+    <h3 style="margin-left: 50px;">Informations de transfert</h3><br>
+    <div class="col-xs-10 col-md-12" style="margin: 0 auto;width: 97%;">
+        <form [formGroup]="myForm" >
+          <div class="row">
+            <div class="col-md-6 col-xs-10">
+              <div class="form-group row">
+                <div class="col-sm-8 col-md-6">
+                  <mat-form-field>
+                    <input matInput placeholder="Type de transfert" formControlName="title">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-10">
+                  <div class="form-group row">
+                    <div class="col-sm-8 col-md-6">
+                        <mat-form-field>
+                          <input matInput placeholder="Compte bénéficiare" formControlName="receiver">
+                        </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-10">
+                  <div class="form-group row">
+                    <div class="col-sm-8 col-md-6">
+                      <mat-form-field>
+                        <input matInput placeholder="Montant" formControlName="amount">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-10">
+                  <div class="form-group row">
+                    <div class="col-sm-8 col-md-6">
+                          <input matInput type="date" class="form-control" placeholder="Date de tranaction"  id="dateTrans" formControlName="transactionDate"/>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-xs-10">
+                <div class="form-group row">
+                  <div class="col-xs-3 col-md-6">
+                    <input type="submit"   class="btn btn-success" (click)="onSubmit()"  value="Transférer" >
+                  </div>
+                  <div class="col-xs-3 col-md-6">
+                    <input type="reset"  class="btn btn-warning" value="Annuler">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </form>
+    </div>
+
+</div>

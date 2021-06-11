@@ -7,6 +7,4 @@ export class Transaction {
   amount: number;
   transactionDate: Date;
 
-
-
 }
