@@ -40,12 +40,7 @@
 
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': GererCompte.isActive }" *ngIf="client">
-      <a class="nav-link" routerLink="/dashboard/client/gerer-compte" routerLinkActive #GererCompte="routerLinkActive">
-        <span class="menu-title"><i class="mdi mdi-account-key"></i> Gérer le compte</span>
 
-      </a>
-    </li>
     <li class="nav-item" [ngClass]="{ 'active': ConsulterSolde.isActive }" *ngIf="client">
       <a class="nav-link" routerLink="/dashboard/client/consulter-solde" routerLinkActive #ConsulterSolde="routerLinkActive">
         <span class="menu-title"><i class="mdi mdi-cash-multiple"></i>  Consulter le solde</span>

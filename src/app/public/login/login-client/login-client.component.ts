@@ -21,7 +21,7 @@ export class LoginClientComponent implements OnInit {
         Session.store(data,"connectedClient")
         this.router.navigate(['/dashboard/client/consulter-solde'])
       }else {
-        alert("---------");
+        alert("Mot de passe incorrect");
       }
     }),
       error=>console.log(error)

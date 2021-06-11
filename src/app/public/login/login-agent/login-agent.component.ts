@@ -24,7 +24,7 @@ export class LoginAgentComponent implements OnInit {
         Session.store(data,"connectedAgent")
         this.router.navigate(['/dashboard/agent/gerer-clients'])
       }else {
-        alert("---------");
+        alert("Mot de passe incorrect");
       }
     }),
       error=>console.log(error)
