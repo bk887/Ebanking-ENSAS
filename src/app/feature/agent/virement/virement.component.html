@@ -37,6 +37,15 @@
               </div>
             </div>
           </div>
+          <div class="col-md-12">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Date de virement</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="creation" id="creation"
+                       [(ngModel)]="transaction.transactionDate"/>
+              </div>
+            </div>
+          </div>
 
 
           <button class="btn  btn-primary  font-weight-medium auth-form-btn" type="submit">submit
@@ -48,7 +57,7 @@
   </div>
 
 
-  </div>
+</div>
 <div class="row">
   <h2 class="paiementsTitle mx-auto">Historique des paiements</h2>
   <div class="col-12 grid-margin">
@@ -58,44 +67,47 @@
           <table class="table">
             <thead>
             <tr>
-              <th>
-                ID Transaction
-              </th>
+
               <th>
                 Opération
               </th>
               <th>
-                Date
+                Sender
               </th>
               <th>
-                Heure
+                Receiver
+              </th>
+              <th>
+                date
               </th>
               <th>
                 Montant
               </th>
             </tr>
             </thead>
-<!--            <tbody>-->
+            <tbody>
 
-<!--            <tr *ngFor="let trans of transaction">-->
-<!--              <td>-->
-<!--                {{ trans?.id }}-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                {{ trans.title }}-->
-<!--              </td>-->
-<!--&lt;!&ndash;              <td>&ndash;&gt;-->
-<!--&lt;!&ndash;                {{ trans.transactionDate }}&ndash;&gt;-->
-<!--&lt;!&ndash;              </td>&ndash;&gt;-->
-<!--&lt;!&ndash;              <td>&ndash;&gt;-->
-<!--&lt;!&ndash;                {{ trans.transactionDate | date: 'HH:mm' }}&ndash;&gt;-->
-<!--&lt;!&ndash;              </td>&ndash;&gt;-->
-<!--              <td [ngClass]="{'text-success': trans.amount > 0, 'text-danger': trans.amount < 0}">-->
-<!--                <label *ngIf="trans.amount > 0">+</label>-->
-<!--                {{ trans.amount }}-->
-<!--              </td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
+            <tr *ngFor="let trans of transactionFromDb">
+
+              <td>
+                {{ trans.title }}
+              </td>
+              <td>
+                {{ trans.sender }}
+              </td>
+              <td>
+                {{ trans.receiver }}
+              </td>
+              <td>
+                {{ trans.transactionDate }}
+              </td>
+
+              <td [ngClass]="{'text-success': trans.amount > 0, 'text-danger': trans.amount < 0}">
+                <label *ngIf="trans.amount > 0">+</label>
+                {{ trans.amount }}
+              </td>
+            </tr>
+            </tbody>
           </table>
         </div>
       </div>

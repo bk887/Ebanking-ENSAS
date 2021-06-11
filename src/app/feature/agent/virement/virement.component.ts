@@ -15,20 +15,32 @@ export class VirementComponent implements OnInit {
 
   transaction : Transaction = new Transaction()
   agent : Agent = new Agent()
+  agentFromDb :Agent = new Agent()
+  id : number
+  transactionFromDb : Transaction[] = []
   constructor(private agentService: AgentService,private modal: NzModalService) {
     this.agent = Session.retrieve("connectedAgent")
+    this.id= this.agent.id
   }
 
   ngOnInit(): void {
+    this.tansactionsDb();
 
 
+  }
+  tansactionsDb(){
+    this.agentService.getAgentById(this.id).subscribe(data =>{
+
+      this.transactionFromDb = data.account.history.transactions
+
+    }),
+      error=>console.log(error)
   }
 
   @ViewChild('myForm', {static: false}) myForm: NgForm;
   onSubmit() {
     this.transaction.sender = this.agent.id.toString()
 
-    console.log(this.transaction)
     this.agentService.saveTransaction(this.transaction).subscribe(data =>{
       this.modal.success({
         nzTitle: 'Bien enregistré',

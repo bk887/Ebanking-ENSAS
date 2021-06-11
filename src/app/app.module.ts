@@ -22,7 +22,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {HttpClientModule} from '@angular/common/http';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +50,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     HttpClientModule,
     NzIconModule
   ],
-  providers: [ThemeService],
+  providers: [ThemeService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
