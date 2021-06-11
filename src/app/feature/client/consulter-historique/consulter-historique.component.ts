@@ -15,23 +15,21 @@ export class ConsulterHistoriqueComponent implements OnInit {
   // private  transactions: Transaction[] = new Array<Transaction>();
   // private history: History = new History();
   private client: Client = new Client();
-  // private id: number = 2439;
+  private clientFromDb: Client = new Client();
 
   constructor(private clientService: ClientService) {
     this.client = Session.retrieve("connectedClient");
   }
 
   ngOnInit(): void {
-    // this.getClients(this.id);
-    // console.log("this.client : ", this.client);
+   this.getClients()
   }
 
-  // private getClients(id: number) {
-  //   this.clientService.getClient(id).subscribe(data => {
-  //     this.history = data.account.history;
-  //     console.log(this.history);
-  //   });
-  //
-  // }
+  private getClients() {
+    this.clientService.getClientById(this.client.id).subscribe(data => {
+    this.clientFromDb = data
+    });
+
+  }
 
 }

@@ -6,6 +6,7 @@ import { EffectuerRechargeTeleComponent } from './effectuer-recharge-tele.compon
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {NzModalModule} from "ng-zorro-antd/modal";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {MatInputModule} from '@angular/material/input';
         EffectuerRechargeTeleRoutingModule,
         MatFormFieldModule,
         ReactiveFormsModule,
-        MatInputModule
+        MatInputModule,
+          NzModalModule
     ]
 })
 export class EffectuerRechargeTeleModule { }

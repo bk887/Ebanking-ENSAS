@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/core/model/Transaction.model';
-import { ClientService } from 'src/app/core/service/client.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {ClientService} from "../../../core/service/client/client.service";
+import {Client} from "../../../core/model/Client.model";
+import {Session} from "../../../utils/session-utils";
+import {NzModalService} from "ng-zorro-antd/modal";
 
 @Component({
   selector: 'app-effectuer-recharge-tele',
@@ -12,10 +15,11 @@ export class EffectuerRechargeTeleComponent implements OnInit {
 
   transa:Transaction;
   myForm!:FormGroup;
+  client : Client = new Client()
 
 
-  constructor(private fb:FormBuilder,private clientServ:ClientService) {
-
+  constructor(private fb:FormBuilder,private clientServ:ClientService,private modal: NzModalService) {
+    this.client = Session.retrieve("connectedClient")
   }
 
   ngOnInit(): void {
@@ -28,27 +32,28 @@ export class EffectuerRechargeTeleComponent implements OnInit {
       }
     )
     this.transa=new Transaction();
-    //this.myForm.valueChanges.subscribe(console.log)
   }
 
   saveTransaction()
   {
     this.clientServ.addTransaction(this.transa).subscribe(data=>{
-        console.log(data);
-        this.myForm.reset()
-      },
+
+      this.modal.success({
+        nzTitle: 'Bien enregistré',
+        nzContent: 'transaction est bien enregistré dans la base de données'
+      });
+    }),
       error=> console.log(error)
-    );
+    this.myForm.reset()
   }
 
   onSubmit()
   {
-    this.transa.sender = this.myForm.controls.account.value;
-    this.transa.receiver = this.myForm.controls.number.value;
+    this.transa.sender = this.client.id.toString();
+    this.transa.receiver = '2661';
     this.transa.amount = this.myForm.controls.amount.value;
     this.transa.transactionDate = this.myForm.controls.transactionDate.value;
-    this.transa.title="Recharge de la ligne "+this.transa.receiver +" d'un solde de "+this.transa.amount;
-    console.log(this.myForm.controls.sender.value);
+    this.transa.title="Recharge de la ligne";
     for(const i in this.myForm.controls)
     {
       this.myForm.controls[i].markAsDirty();

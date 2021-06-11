@@ -8,7 +8,10 @@
             <thead>
             <tr>
               <th>
-                ID Transaction
+                Sender
+              </th>
+              <th>
+                Receiver
               </th>
               <th>
                 Opération
@@ -25,77 +28,14 @@
             </tr>
             </thead>
             <tbody>
-<!--              <tr>-->
-<!--                <td>-->
-<!--                  WD-12345-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Fund is not recieved-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Dec 5, 2017-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  08:15-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  1000 MAD-->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>-->
-<!--                  WD-12346-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  High loading time-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Dec 12, 2017-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  08:15-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  1000 MAD-->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>-->
-<!--                  WD-12347-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Website down for one week-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Dec 16, 2017-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  08:15-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  1000 MAD-->
-<!--                </td>-->
-<!--              </tr>-->
-<!--              <tr>-->
-<!--                <td>-->
-<!--                  WD-12348-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Loosing control on server-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  Dec 3, 2017-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  08:15-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                  1000 MAD-->
-<!--                </td>-->
-<!--              </tr>-->
-              <tr *ngFor="let trans of client.account.history.transactions">
+
+              <tr *ngFor="let trans of clientFromDb.account.history.transactions">
+
                 <td>
-                  {{ trans?.id }}
+                  {{ trans.sender }}
+                </td>
+                <td>
+                  {{ trans.receiver }}
                 </td>
                 <td>
                   {{ trans.title }}
