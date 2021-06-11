@@ -1,0 +1,14 @@
+.conteneur {
+    background-image: url(../../../../assets/transBackg.jpg); /* The image used */
+    //background-color: #ec9c9c; /* Used if the image is unavailable */
+    height: auto; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size:cover; /* Resize the background image to cover the entire container */
+  }
+label
+  {
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: medium;
+  }
