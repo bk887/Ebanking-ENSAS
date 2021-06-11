@@ -12,6 +12,8 @@ import {Router} from "@angular/router";
 export class LoginClientComponent implements OnInit {
 
   identification : Identification = new Identification()
+  showError: boolean = false;
+
   constructor(private loginService :LoginService,private router :Router) { }
 
   identificationClient(){
@@ -21,7 +23,8 @@ export class LoginClientComponent implements OnInit {
         Session.store(data,"connectedClient")
         this.router.navigate(['/dashboard/client/consulter-solde'])
       }else {
-        alert("---------");
+        // alert("---------");
+        this.showError = true;
       }
     }),
       error=>console.log(error)
@@ -32,7 +35,7 @@ export class LoginClientComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("agent identification :" , this.identification)
+    // console.log("agent identification :" , this.identification)
     this.identificationClient()
   }
 
