@@ -31,4 +31,8 @@ export class ClientService {
     return this.httpClient.post<Transaction>(this.baseUrlTrans,trans );
   }
 
+  getTransactions(idClient: number): Observable<Transaction[]> {
+    return this.httpClient.get<Transaction[]>(`${this.baseUrl + "transactions/" + idClient}`);
+  }
+
 }

@@ -66,11 +66,11 @@
           <ul>
             <li class="text-danger">
               <span class="legend-dots"></span><i class="mdi mdi-trending-down"></i> Sorties
-              <span class="float-right">{{this.negativeTransaction}}%</span>
+              <span class="float-right">{{this.negativeTransaction | number : '1.0-2'}}%</span>
             </li>
             <li class="text-success">
               <span class="legend-dots"></span><i class="mdi mdi-trending-up"></i> Entrées
-              <span class="float-right">{{this.positiveTransaction}}%</span>
+              <span class="float-right">{{this.positiveTransaction | number : '1.0-2'}}%</span>
             </li>
           </ul>
         </div>
@@ -95,21 +95,24 @@
             <thead>
             <tr>
               <th>
-                Transaction id
-              </th>
-              <th>
                 Nom
               </th>
               <th>
                 Date
               </th>
+              <th>
+                Montant
+              </th>
             </tr>
             </thead>
             <tbody>
               <tr *ngFor="let trans of this.client.account.history.transactions; let i = index">
-                <td *ngIf="i < 3">{{ trans.id }}</td>
                 <td *ngIf="i < 3">{{ trans.title }}</td>
                 <td *ngIf="i < 3">{{ trans.transactionDate }}</td>
+                <td *ngIf="i < 3" [ngClass]="{'text-success': trans.amount > 0, 'text-danger': trans.amount < 0}">
+                  <label *ngIf="trans.amount > 0">+</label>
+                  {{ trans.amount }} MAD
+                </td>
               </tr>
             </tbody>
           </table>

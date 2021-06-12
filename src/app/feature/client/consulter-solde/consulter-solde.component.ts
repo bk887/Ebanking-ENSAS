@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Client} from '../../../core/model/Client.model';
 import {ClientService} from '../../../core/service/client/client.service';
 import {Transaction} from '../../../core/model/Transaction.model';
 import {History} from '../../../core/model/History.model';
 import {Session} from '../../../utils/session-utils';
 import {element} from 'protractor';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-consulter-solde',
@@ -16,13 +17,26 @@ export class ConsulterSoldeComponent implements OnInit {
   private client: Client = new Client();
   private positiveTransaction: number = 0.0;
   private negativeTransaction: number = 0.0;
+  private listTransactions: Transaction[];
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService, @Inject(DOCUMENT) private document: Document) {
     this.client = Session.retrieve("connectedClient");
+    if( this.client == null ) {
+      // alert("pas connecter");
+      window.location.href = 'http://localhost:4200/login/login-client';
+    }
   }
 
   ngOnInit(): void {
+    this.getTransactions()
     this.transactionDataChart();
+    console.log(this.listTransactions);
+  }
+
+  private getTransactions() {
+      this.clientService.getTransactions(this.client.id).subscribe(data => {
+        this.listTransactions = data;
+      });
   }
 
   private transactionDataChart() {
@@ -34,8 +48,16 @@ export class ConsulterSoldeComponent implements OnInit {
       }
     });
 
-    this.positiveTransaction = ( this.positiveTransaction / (this.positiveTransaction + this.negativeTransaction) ) * 100;
-    this.negativeTransaction = ( this.negativeTransaction / (this.positiveTransaction + this.negativeTransaction) ) * 100;
+    console.log("positif: " + this.positiveTransaction);
+    console.log("negatif: " + this.negativeTransaction);
+
+    let total = this.positiveTransaction + this.negativeTransaction;
+
+    this.positiveTransaction = ( this.positiveTransaction / total ) * 100;
+    this.negativeTransaction = ( this.negativeTransaction / total ) * 100;
+
+    console.log("positif: " + this.positiveTransaction);
+    console.log("negatif: " + this.negativeTransaction);
 
     this.trafficChartData = [
       {

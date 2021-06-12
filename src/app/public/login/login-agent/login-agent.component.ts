@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class LoginAgentComponent implements OnInit {
 
   identification : Identification = new Identification()
+  showError: boolean = false;
   constructor(private loginService :LoginService,private router :Router) { }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class LoginAgentComponent implements OnInit {
         Session.store(data,"connectedAgent")
         this.router.navigate(['/dashboard/agent/gerer-clients'])
       }else {
-        alert("Mot de passe incorrect");
+        this.showError = true;
       }
     }),
       error=>console.log(error)
